@@ -1,0 +1,733 @@
+/* ****************************** */
+/* HEADER */
+/* ****************************** */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf2e9;
+
+  /* We made the height fixed instead of allowing the content to set the height and adjusting it with padding. We did this because we want to make the header sticky, and it is easier to make it sticky with a fixed height */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+
+  /* !Important we hid the mobile menu to the side of the page
+  !and set the overflow-x to hidden on the html and body
+  !but if there is an element absolutely positioned in relation to the body
+  !it doesn''t work so to fix it we add position realative to the header
+  !without this page scrolls to the side and we can't hide the mobile menu  */
+  position: relative;
+}
+
+.logo {
+  height: 2.2rem;
+}
+
+/* ****************************** */
+/* NAVIGATION*/
+/* ****************************** */
+
+.main-nav-list {
+  display: flex;
+  align-items: center;
+  gap: 4.8rem;
+  list-style: none;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 300ms;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+
+/* We used the and selector to increase the specifity of this selector to make sure this is the ruleset that applies */
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #cf711f;
+}
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  /* It is hidden by default
+  it will be made visible with media queries */
+  display: none;
+}
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8em;
+  color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/* STICKY NAVIGATION */
+
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: rgba(255, 255, 255, 0.97);
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+}
+
+.sticky .section-hero {
+  margin-top: 9.6rem;
+}
+
+/* ****************************** */
+/* HERO SECTION */
+/* ****************************** */
+
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 9.6rem;
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.delivered-meals {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-top: 8rem;
+}
+.delivered-imgs {
+  display: flex;
+}
+
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  margin-right: -1.6rem;
+
+  /* We added a border to create some space between images that are on top of each other */
+  border: 3px solid #fdf2e9;
+}
+.delivered-imgs img:last-child {
+  margin-right: 0;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
+
+/* ****************************** */
+/* FEATURED IN SECTION */
+/* ****************************** */
+
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #777;
+}
+
+.logos {
+  display: flex;
+  justify-content: space-around;
+}
+
+.logos img {
+  height: 3.2rem;
+  /* We used brightness to make it black */
+  filter: brightness(0);
+  /* We sued opacity to make it gray */
+  opacity: 0.6;
+}
+
+/* ****************************** */
+/* HOW IT WORKS SECTION */
+/* ****************************** */
+
+.section-how {
+  padding: 9.6rem 0;
+}
+
+/* Examples for the grid, grid--2-cols and grid--3-cols classes */
+
+/* .section-how div {
+  padding: 100px;
+  font-size: 50px;
+}
+
+.section-how div:nth-child(1) {
+  background-color: aqua;
+}
+.section-how div:nth-child(2) {
+  background-color: blue;
+}
+.section-how div:nth-child(3) {
+  background-color: violet;
+}
+.section-how div:nth-child(4) {
+  background-color: yellow;
+} */
+.step-num {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.step-img-box {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-img {
+  width: 35%;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: "";
+  display: block;
+  position: absolute;
+
+  border-radius: 50%;
+}
+
+.step-img-box::before {
+  width: 65%;
+
+  /* This doesn't work if we do this we don't get a square but a recrangle
+  reason for that the parent elements height and width is not the same */
+  /* height: 60%; */
+
+  /* We can use the padding bottom to make it work
+  padding-bottom is defined by the width of the parent container not the HEIGHT
+  
+  With this we create a element with a height of 0 and then add padding to the bottom equal to the 60% of the width of the container
+  And ebcause noth the width and heigth is 60% of the parent container we get a square
+  */
+  padding-bottom: 65%;
+  background-color: #fdf2e9;
+  z-index: -2;
+}
+
+.step-img-box::after {
+  width: 50%;
+  padding-bottom: 50%;
+  background-color: #fae5d3;
+  z-index: -1;
+}
+
+/* ****************************** */
+/* MEALS SECTION */
+/* ****************************** */
+
+.section-meals {
+  padding: 9.6rem 0;
+}
+
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
+  border-radius: 11px;
+
+  /* We need to add overflow:hidden so that the top of the image is also rounded
+  It doesn't look rounded noramlly because the image is on top of the container so the border radius is not seen. But with overflow:hidden whatever overflows out of the container is hidden. And because the sides of the container are rounded and the images in not rounded images overflows */
+  overflow: hidden;
+  /* We could of also used border-top-left-radius: 11px; on the image elements to fix it*/
+  transition: translate 400ms;
+}
+
+.meal:hover {
+  translate: 0 -1.2rem;
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.075);
+}
+
+.meal-content {
+  padding: 4.8rem;
+  padding-top: 3.2rem;
+}
+
+.meal-tags {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+.tag--vegan {
+  background-color: #94d82d;
+}
+
+.tag--paleo {
+  background-color: #ffd43b;
+}
+
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+}
+
+.meal-attribute {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  font-size: 1.8rem;
+}
+
+.meal-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #e67e22;
+}
+
+.meal-img {
+  width: 100%;
+}
+
+.all-recipes {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* ****************************** */
+/* TESTIMONIALS SECTION */
+/* ****************************** */
+.section-testimonials {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  background-color: #fdf2e9;
+  /* We used align-items:center because otherwise when we re-size the browser window images get a weird gap between them.
+  Reason for that gap was becasue of the aspect ration
+  browsers width was smaller then its height so to keep the images square images got smaller but the height of the grid container was still the same
+  so the grid made a decision about what to do with the extra vertical space and gave spaces around the images. But when we set the align-items:center we make the grid to center all the items in it in the midde with this it doesn't matter how much vertical or hgorizontal sapce the grid has
+  it centes the item in that space and respects the settings we gave it
+  But we lost the spacing we gave it at the top because we centerd the whole grid we will fix this with media queries later   */
+  align-items: center;
+}
+
+.testimonials-container {
+  padding: 9.6rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  padding: 1.6rem;
+}
+
+.gallery-item {
+  /* We se tthe overflow to hidden to instead of images getting bigger the overflowed parts gets cut of and we get an effect that looks like the images are zooming in */
+  overflow: hidden;
+}
+
+.gallery-img {
+  /* We set the display to block because images are inline elements by default and with inline elements there are white spaces and we don't want any white spaces between our images. */
+  display: block;
+  width: 100%;
+  transition: scale 400ms;
+  z-index: -1;
+}
+
+.gallery-img:hover {
+  scale: 1.1;
+}
+
+/* ****************************** */
+/* PRICING SECTION */
+/* ****************************** */
+
+.section-pricing {
+  padding: 9.6rem 0;
+}
+
+.pricing-plan {
+  border-radius: 11px;
+  /* We added the pading individually to plans because of layout alignment issues */
+  /* padding: 4.8rem; */
+  width: 75%;
+}
+
+.pricing-plan--starter {
+  justify-self: end;
+  border: 2px solid #fdf2e9;
+
+  /* Because of the 2px border we added we mess the alignment of the layout
+  To fixed it we need to have 2px less of a padding in the starter plan than the complete plan  */
+  padding: 4.6rem;
+}
+
+.pricing-plan--complete {
+  position: relative;
+  background-color: #fdf2e9;
+  padding: 4.8rem;
+  overflow: hidden;
+}
+
+.pricing-plan--complete::after {
+  position: absolute;
+  content: "Best value";
+  top: 2.2em;
+  right: -3.5rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #ffd43b;
+  color: #333;
+  padding: 0.8rem 4rem;
+  rotate: z 45deg;
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+
+.plan-name {
+  color: #cf711f;
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0.8rem;
+}
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+
+.plan-sign-up {
+  text-align: center;
+  margin-top: 4.8rem;
+}
+
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.feature-icon {
+  position: relative;
+  color: #e67e22;
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-bottom: 3.2rem;
+  background-color: #fdf2e9;
+  padding: 1.6rem;
+  border-radius: 50%;
+}
+
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/* ****************************** */
+/* CTA SECTION */
+/* ****************************** */
+
+.section-cta {
+  padding: 4.8rem 0;
+  padding-bottom: 12.8rem;
+}
+
+.cta {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  background-color: #e67e22;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.2);
+  border-radius: 11px;
+
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+  /* Image was overflowing the container
+  so we set the overflow to hidden */
+  overflow: hidden;
+}
+
+.cta-text-box {
+  /* We needed to change the color because the contrast wasn't good enough.
+  We made the color a really dark shade of the brand color instead of a random grey */
+  color: #45260a;
+  padding: 6.4rem;
+  padding-top: 4.8rem;
+}
+
+.cta .heading-secondary {
+  color: #45260a;
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+
+.cta-img-box {
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(28, 80%, 61%, 0.35),
+      hsla(28, 80%, 52%, 0.35)
+    ),
+    url("../img/eating.jpg");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.cta-form label {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+.cta-form input,
+.cta-form select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  /* Form inputs do not inherit font-family from their paretns
+  to force it to inherit we can use the inherit keyword */
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* We can change the placeholder color by using a placeholder  */
+
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+/* !Use focus-visible to make the outline appear only when using tab
+!with :focus outline shows when we click as well  */
+/* .cta-form *:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
+} */
+
+.cta-form *:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
+}
+
+.cta-form input,
+.cta-form select {
+  transition: box-shadow 300ms;
+}
+
+/* ****************************** */
+/* FOOTER SECTION */
+/* ****************************** */
+
+.footer {
+  padding: 12.8rem 0;
+  border-top: 1px solid #ddd;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: block;
+  margin-bottom: 3.2rem;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  color: #767676;
+  line-height: 1.6;
+  /* We want the copyright section to be aligned with the end of the other sections. Copyright section is inside a grid, so it is as tall as the tallest element by default. We want the copyright section to be at the bottom. To do that we made the parent element of the copyright(logo-col) a flex element but we can't use align-self because the flex-direction is column.
+  We used the trick from the earlier section
+  (from the e-mail like app we build) to align it at the bottom*/
+  margin-top: auto;
+
+  /* We also could of made the parent container a grid element and added align-self(we would of needed to play around with margins to get the same layout but it is pretty easy to do) (if you do that do not use grid template-rows: 1fr 1fr 1fr, either do not write anything and css will automaticly place it in 3 rows with only one column or use grid-template-rows:auto auto auto. Because otherwise it gives all the grid childs the same dimension and the layout gets messed up, it doesn't look good and it makes all of the columns (of the outer grid element) bigger.) */
+  /* align-self: end; */
+}
+
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+.address {
+  margin-bottom: 2.4rem;
+}
+.footer-nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transform: color 300ms;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}

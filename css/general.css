@@ -1,0 +1,358 @@
+/*
+---01 TYPOGRAPHY
+
+-Font size (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+-Font weigth:
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+-Line height:
+Default: 1
+Small: 1.05
+Medium: 1.2
+Paragraph default: 1.6
+Large:1.8
+
+-Letter spacing
+-0.5px
+0.75px
+
+
+
+
+---02 COLORS
+
+- Primary:
+#e67e22
+
+- Tints:
+#fdf2e9
+#fae5d3
+#eb984e
+
+- Shades:
+#cf711f
+#45260a;
+
+- Accents:
+
+- Greys:
+#888
+#767676 (ligtest grey allowed on #fff
+#6f6f6f (lightest grey allowed on #fdf2e9
+#555
+#333
+
+---05 SHADOWS
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
+
+
+---06 BORDER_RADIUS
+
+Default:9px
+Medium:11px
+
+---07 WHITESPACE
+
+-Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* 62.5% is equal to 10px
+    10px/16px= 0.625= 62.5%
+    We didn't write font-size:10px because that would effect accessibility
+   */
+  font-size: 62.5%;
+
+  /* We did this because we are hiding the mobile navigation menu to the right side of the screen and we needed to be hidden. If we don't do this overflowing elements is still showed on the viewport */
+  /* !Only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+
+  /* Does not work on some versions of safari */
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+
+  /* We did this because we are hiding the mobile navigation menu to the right side of the screen and we needed to be hidden. If we don't do this overflowing elements is still showed on the viewport */
+  /* !Only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+}
+
+/* ****************************** */
+/* GENERAL REUSABLE COMPONENTS */
+/* ****************************** */
+
+/* We will use the container class to always center the content on our page */
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+/* Creating a reusable grid */
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+  /* margin-bottom: 9.6rem; */
+}
+
+/* We could of made the margin-bottom 0 at the last element as well
+instead we set the margin-bottom to 9.6rem for all the elements that are not the last child */
+/* .grid:last-child {
+  margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.grid--center-h {
+  justify-items: center;
+}
+
+.grid--center {
+  place-items: center;
+}
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-weight: 700;
+  color: #333;
+  /* We could of used a shade of the primary color as well */
+  /* color:#45260a */
+  /* Or choose a color from open color or any other site */
+  /* color: #343a40; */
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  line-height: 1.05;
+  margin-bottom: 3.2rem;
+}
+
+.heading-secondary {
+  font-size: 4.4rem;
+  line-height: 1.2;
+  margin-bottom: 9.6rem;
+}
+
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.subheading {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+/* btn without any pseudo class is a real button not an anchor element
+we want them to have the same style so we grouped them together */
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.6rem 3.2rem;
+  border-radius: 1rem;
+
+  /* Only necessary fot he .btn */
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+
+  transition: box-shadow 300ms, background-color 300ms;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+
+  /* We can not add border like border 3px solid #fff
+  Because adds the border to the outside
+  and that messes the layout */
+
+  /* Trickt to add border to the inside
+  With the inset keyword shadow is added to the inside of the element
+  */
+
+  box-shadow: inset 0 0 0px 3px #fff;
+
+  /* !DO NOT USE AN PUTLINE (OR CHECK BEFORE USING IT)
+  !BECAUSE IT IS USED FOR ACCESIBILITY */
+  /* You can also use an outline
+  Outline doesn't mess up the layout
+  With outline if you want the outline inside the element
+  you need to use the outline-offset property */
+  /* outline: 3px solid #fff;
+  outline-offset: -3px; */
+
+  /* If we put the transition property only on the hover state(not on the class selector) we can make the animation only one way
+  with this animation only plays when we hover */
+}
+
+/* Helper class 
+margin-right-sm is a helper class we can add this class to other elements as well to add margin to the right.
+We use helper classes mainly for adding margins or styles we want to use for multiple elements, that we don't want to add to the elements ruleset.
+For example we don't want to add this to the .btn--full because we might use .btn--full on another place.
+
+When we have a helper class we really want the style to be applied
+so we mark it with !important. That makes sures that the style marked with !important has always the highest priority
+*/
+
+.btn--form {
+  background-color: #45260a;
+  color: #fdf2e9;
+  padding: 1.2rem;
+}
+
+.btn--form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #e67e22;
+  border-bottom: 1px solid currentColor;
+  padding: 0.2rem;
+  transition: border-bottom 300ms, color 300ms;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* We want to remove the border but we can NOT simply use border-bottom:none;
+  Because the layout shifts one pixel and it looks jarring 
+  We can fix this by border:transparent*/
+
+  border-bottom: 1px solid transparent;
+}
+
+.list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  line-height: 1.2;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+/* *:focus { */
+/* !NEVER SET THE OUTLINE TO NONE THIS IS REALLY BAD FOR ACCESSIBILITY
+  !STYLE THE OUTLINE TO BE MORE BEAUTIFUL BUT NEVER HIDE IT*/
+/* outline: none; */
+
+/* This looks better but it doesn't wrap around the border-radious
+  so it is a rectangular shape */
+/* outline: 4px dotted #e67e22; */
+/* outline-offset: 8px; */
+
+/* We can use a box shadow to make it round */
+/* outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(231, 127, 35, 0.5);
+} */
+
+/* !Use focus-visible to make the outline appear only when using tab
+!with :focus outline shows when we click as well  */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(231, 127, 35, 0.5);
+}
+
+/* HELPER/SETTINGS CLASSES */
+
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.align-self--end {
+  align-self: end !important;
+}
+strong {
+  font-weight: 500;
+}
