@@ -4,7 +4,7 @@
 -Font size (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
 
--Font weigth:
+-Font weight:
 Default: 400
 Medium: 500
 Semi-bold: 600
@@ -42,7 +42,7 @@ Large:1.8
 
 - Greys:
 #888
-#767676 (ligtest grey allowed on #fff
+#767676 (lightest grey allowed on #fff
 #6f6f6f (lightest grey allowed on #fdf2e9
 #555
 #333
@@ -234,14 +234,14 @@ we want them to have the same style so we grouped them together */
   Because adds the border to the outside
   and that messes the layout */
 
-  /* Trickt to add border to the inside
+  /* Trick to add border to the inside
   With the inset keyword shadow is added to the inside of the element
   */
 
   box-shadow: inset 0 0 0px 3px #fff;
 
-  /* !DO NOT USE AN PUTLINE (OR CHECK BEFORE USING IT)
-  !BECAUSE IT IS USED FOR ACCESIBILITY */
+  /* !DO NOT USE AN OUTLINE (OR CHECK BEFORE USING IT)
+  !BECAUSE IT IS USED FOR ACCESSIBILITY */
   /* You can also use an outline
   Outline doesn't mess up the layout
   With outline if you want the outline inside the element
@@ -255,11 +255,11 @@ we want them to have the same style so we grouped them together */
 
 /* Helper class 
 margin-right-sm is a helper class we can add this class to other elements as well to add margin to the right.
-We use helper classes mainly for adding margins or styles we want to use for multiple elements, that we don't want to add to the elements ruleset.
+We use helper classes mainly for adding margins or styles we want to use for multiple elements, that we don't want to add to the elements rule set.
 For example we don't want to add this to the .btn--full because we might use .btn--full on another place.
 
 When we have a helper class we really want the style to be applied
-so we mark it with !important. That makes sures that the style marked with !important has always the highest priority
+so we mark it with !important. That makes sure that the style marked with !important has always the highest priority.
 */
 
 .btn--form {
@@ -319,7 +319,7 @@ so we mark it with !important. That makes sures that the style marked with !impo
   !STYLE THE OUTLINE TO BE MORE BEAUTIFUL BUT NEVER HIDE IT*/
 /* outline: none; */
 
-/* This looks better but it doesn't wrap around the border-radious
+/* This looks better but it doesn't wrap around the border-radius
   so it is a rectangular shape */
 /* outline: 4px dotted #e67e22; */
 /* outline-offset: 8px; */

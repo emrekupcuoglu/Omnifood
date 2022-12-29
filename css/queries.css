@@ -1,7 +1,7 @@
 /* !rem and em do NOT depend on html font size in media queries
-!Insetead we assume that 1rem = 1em = 16px */
+!Instead we assume that 1rem = 1em = 16px */
 /* !There might be bugs in some browsers using rem with media queries
-!So we willl use em (this problem might be fixed)  */
+!So we will use em (this problem might be fixed)  */
 
 /* ****************************** */
 /* BELOW 1344px (Smaller desktops)*/
@@ -153,7 +153,7 @@
     /* 1. Hide it visually */
     opacity: 0;
 
-    /* 2. Make it unaccesible to mouse and keyboard 
+    /* 2. Make it inaccessible to mouse and keyboard 
     Because unlike display:none we only lowered the opacity
     so the elements are still on the page*/
     pointer-events: none;
@@ -303,8 +303,8 @@
 
   .cta-img-box {
     /* Because this div doesn't have any content and uses a background image as an image instead of an <img> element css doesn't give it any height
-    The only reason that it had a heigth before because it was side by side with another element(this and the other element is insdei a grid) and it automaticly get the heigth of that element because of how grid works.
-    But now we need to give it a heigth manually*/
+    The only reason that it had a height before because it was side by side with another element(this and the other element is inside a grid) and it automatically get the height of that element because of how grid works.
+    But now we need to give it a height manually*/
     height: 36rem;
 
     grid-row: 1;

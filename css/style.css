@@ -11,11 +11,11 @@
   height: 9.6rem;
   padding: 0 4.8rem;
 
-  /* !Important we hid the mobile menu to the side of the page
-  !and set the overflow-x to hidden on the html and body
-  !but if there is an element absolutely positioned in relation to the body
-  !it doesn''t work so to fix it we add position realative to the header
-  !without this page scrolls to the side and we can't hide the mobile menu  */
+  /* ! Important we hid the mobile menu to the side of the page
+  ! and set the overflow-x to hidden on the html and body
+  ! but if there is an element absolutely positioned in relation to the body
+  ! it doesn't work so to fix it we add position relative to the header,
+  ! without this page scrolls to the side and we can't hide the mobile menu  */
   position: relative;
 }
 
@@ -49,7 +49,7 @@
   color: #cf711f;
 }
 
-/* We used the and selector to increase the specifity of this selector to make sure this is the ruleset that applies */
+/* We used the and selector to increase the specificity of this selector to make sure this is the rule set that applies */
 .main-nav-link.nav-cta:link,
 .main-nav-link.nav-cta:visited {
   padding: 1.2rem 2.4rem;
@@ -257,15 +257,15 @@
 .step-img-box::before {
   width: 65%;
 
-  /* This doesn't work if we do this we don't get a square but a recrangle
+  /* This doesn't work if we do this we don't get a square but a rectangle
   reason for that the parent elements height and width is not the same */
-  /* height: 60%; */
+  /* height: 65%; */
 
   /* We can use the padding bottom to make it work
   padding-bottom is defined by the width of the parent container not the HEIGHT
   
-  With this we create a element with a height of 0 and then add padding to the bottom equal to the 60% of the width of the container
-  And ebcause noth the width and heigth is 60% of the parent container we get a square
+  With this we create an element with a height of 0 and then add padding to the bottom equal to the 65% of the width of the container
+  And because both the width and height is 65% of the parent container we get a square
   */
   padding-bottom: 65%;
   background-color: #fdf2e9;
@@ -292,7 +292,7 @@
   border-radius: 11px;
 
   /* We need to add overflow:hidden so that the top of the image is also rounded
-  It doesn't look rounded noramlly because the image is on top of the container so the border radius is not seen. But with overflow:hidden whatever overflows out of the container is hidden. And because the sides of the container are rounded and the images in not rounded images overflows */
+  It doesn't look rounded normally because the image is on top of the container so the border radius is not seen. But with overflow:hidden whatever overflows out of the container is hidden. And because the sides of the container are rounded and the images in not rounded images overflows */
   overflow: hidden;
   /* We could of also used border-top-left-radius: 11px; on the image elements to fix it*/
   transition: translate 400ms;
@@ -378,13 +378,26 @@
   display: grid;
   grid-template-columns: 55fr 45fr;
   background-color: #fdf2e9;
-  /* We used align-items:center because otherwise when we re-size the browser window images get a weird gap between them.
-  Reason for that gap was becasue of the aspect ration
-  browsers width was smaller then its height so to keep the images square images got smaller but the height of the grid container was still the same
-  so the grid made a decision about what to do with the extra vertical space and gave spaces around the images. But when we set the align-items:center we make the grid to center all the items in it in the midde with this it doesn't matter how much vertical or hgorizontal sapce the grid has
-  it centes the item in that space and respects the settings we gave it
-  But we lost the spacing we gave it at the top because we centerd the whole grid we will fix this with media queries later   */
-  align-items: center;
+  /* We used align-items:center because otherwise when we re-size the browser window, images get a weird gap between them.
+  Reason for that gap was because of the aspect ratio
+  This is not a problem when the browsers height changes because we can scroll 
+  and the content just overflows the viewport so that we can scroll. But when the width gets
+  smaller and smaller this creates a problem.
+  Browser's width gets smaller then its height so to keep the images square,
+  images got smaller as expected but the grid container didn't get smaller at the same rate
+  because the grid container takes the parent as its reference and got smaller in accordance with the parent.
+  And because it didn't got smaller at the same rate it had some extra space.
+  So the grid made a decision about what to do with the extra vertical space
+  and gave the extra space to the bottom side of the images. Because the default behavior of the
+  align-items is stretch and stretch makes the items in it stretch to take as much space as possible
+  it creates empty spaces.
+  But when we set the align-items:center we make
+  the grid to center all the items inside it in the middle.
+  With this it doesn't matter how much vertical or horizontal space the grid has,
+  it centers the item in that space and respects the settings we gave it
+  But we lost the spacing we gave it at the top because we centered the whole grid
+  we will fix this with media queries later   */
+  /* align-items: center; */
 }
 
 .testimonials-container {
@@ -423,7 +436,7 @@
 }
 
 .gallery-item {
-  /* We se tthe overflow to hidden to instead of images getting bigger the overflowed parts gets cut of and we get an effect that looks like the images are zooming in */
+  /* We set the overflow to hidden to instead of images getting bigger the overflowed parts gets cut of and we get an effect that looks like the images are zooming in */
   overflow: hidden;
 }
 
@@ -449,7 +462,7 @@
 
 .pricing-plan {
   border-radius: 11px;
-  /* We added the pading individually to plans because of layout alignment issues */
+  /* We added the padding individually to plans because of layout alignment issues */
   /* padding: 4.8rem; */
   width: 75%;
 }
@@ -618,7 +631,7 @@
   width: 100%;
   padding: 1.2rem;
   font-size: 1.8rem;
-  /* Form inputs do not inherit font-family from their paretns
+  /* Form inputs do not inherit font-family from their parents
   to force it to inherit we can use the inherit keyword */
   font-family: inherit;
   color: inherit;
@@ -694,7 +707,7 @@
   (from the e-mail like app we build) to align it at the bottom*/
   margin-top: auto;
 
-  /* We also could of made the parent container a grid element and added align-self(we would of needed to play around with margins to get the same layout but it is pretty easy to do) (if you do that do not use grid template-rows: 1fr 1fr 1fr, either do not write anything and css will automaticly place it in 3 rows with only one column or use grid-template-rows:auto auto auto. Because otherwise it gives all the grid childs the same dimension and the layout gets messed up, it doesn't look good and it makes all of the columns (of the outer grid element) bigger.) */
+  /* We also could of made the parent container a grid element and added align-self(we would of needed to play around with margins to get the same layout but it is pretty easy to do) (if you do that do not use grid template-rows: 1fr 1fr 1fr, either do not write anything and css will automatically place it in 3 rows with only one column or use grid-template-rows:auto auto auto. Because otherwise it gives all the grid children the same dimension and the layout gets messed up, it doesn't look good and it makes all of the columns (of the outer grid element) bigger.) */
   /* align-self: end; */
 }
 
